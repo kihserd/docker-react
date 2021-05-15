@@ -1,9 +1,10 @@
+language: generic
 sudo: required
 services:
   - docker
 
 before_install:
-  - docker build -t dresha/docker-react -f Dockerfile.dev .
+  - docker build -t dreshik/docker-react -f Dockerfile.dev .
 
 script:
-  - docker run dresha/docker-react npm run test -- --coverage
+  - docker run -e CI=true dreshik/docker-react npm run test
